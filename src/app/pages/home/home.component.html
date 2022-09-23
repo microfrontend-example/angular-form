@@ -1,14 +1,14 @@
 <a (click)="go()">home works!</a>
 
-<form>
+<form [formGroup]="form" (ngSubmit)="sendForm()">
   <div class="form__row">
     <label for="todo">Todo</label>
-    <input type="text" id="todo" />
+    <input type="text" id="todo" formControlName="todo" />
   </div>
 
   <div class="form__row">
-    <label for="todo">Todo</label>
-    <input type="text" id="todo" />
+    <label for="todo">Completed</label>
+    <input type="checkbox" formControlName="completed" id="todo" />
   </div>
 
   <div class="form__row">
