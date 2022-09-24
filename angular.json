@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-builders/custom-webpack:browser",
                     "options": {
-                        "outputPath": "dist/form",
+                        "outputPath": "dist",
                         "index": "src/index.html",
                         "main": "src/main.single-spa.ts",
                         "polyfills": "src/polyfills.ts",
@@ -36,7 +36,7 @@
                             "libraryName": "form",
                             "libraryTarget": "umd"
                         },
-                        "deployUrl": "http://localhost:4200/"
+                        "deployUrl": "./"
                     },
                     "configurations": {
                         "production": {

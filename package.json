@@ -7,7 +7,7 @@
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "build:single-spa:form": "ng build form --configuration production",
+        "build:single-spa:form": "ng build form --configuration production && rm -rf ./docs && mv ./dist ./docs",
         "serve:single-spa:form": "ng s --project form --disable-host-check --port 4200 --live-reload true"
     },
     "private": true,
