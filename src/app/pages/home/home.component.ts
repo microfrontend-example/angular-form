@@ -7,11 +7,13 @@ import {
   Validators,
 } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { navigateToUrl } from 'single-spa';
 
-import store from '@throwjs/store';
+import { storeTodo } from '@throwjs/store';
+
 import { ITodoForm } from './models';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -44,9 +46,9 @@ export class HomeComponent {
 
     const { completed, todo } = this.form.value;
 
-    store.addTodo({
+    storeTodo.addTodo({
       completed: completed as boolean,
-      id: store.id,
+      id: storeTodo.id,
       text: todo as string,
     });
 
