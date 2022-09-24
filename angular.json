@@ -36,7 +36,7 @@
                             "libraryName": "form",
                             "libraryTarget": "umd"
                         },
-                        "deployUrl": "./"
+                        "deployUrl": "./angular-form/"
                     },
                     "configurations": {
                         "production": {
