@@ -1,17 +1,25 @@
-<a (click)="go()">home works!</a>
+<div class="Home">
+  <div class="alert" *ngIf="show">Todo has been added</div>
+  <div class="card">
+    <form class="form" [formGroup]="form" (ngSubmit)="sendForm()">
+      <div class="form__row">
+        <label for="todo">Todo</label>
+        <input
+          class="form__input"
+          type="text"
+          id="todo"
+          formControlName="todo"
+        />
+      </div>
 
-<form [formGroup]="form" (ngSubmit)="sendForm()">
-  <div class="form__row">
-    <label for="todo">Todo</label>
-    <input type="text" id="todo" formControlName="todo" />
-  </div>
+      <div class="form__row form__flex">
+        <label for="todo">Completed</label>
+        <input type="checkbox" formControlName="completed" id="todo" />
+      </div>
 
-  <div class="form__row">
-    <label for="todo">Completed</label>
-    <input type="checkbox" formControlName="completed" id="todo" />
+      <div class="form__row text-right">
+        <button>Send</button>
+      </div>
+    </form>
   </div>
-
-  <div class="form__row">
-    <button>Send</button>
-  </div>
-</form>
+</div>

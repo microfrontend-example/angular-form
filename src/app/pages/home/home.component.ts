@@ -11,18 +11,21 @@ import { navigateToUrl } from 'single-spa';
 
 import store from '@throwjs/store';
 import { ITodoForm } from './models';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule],
 })
 export class HomeComponent {
   form: FormGroup<ITodoForm>;
+  show: boolean;
 
   constructor(private _fb: FormBuilder) {
+    this.show = false;
     this.form = this._fb.group<ITodoForm>({
       todo: new FormControl(null, Validators.required),
       completed: new FormControl(false, {
@@ -37,7 +40,6 @@ export class HomeComponent {
   }
 
   sendForm(): void {
-    console.log(this.form.value);
     if (this.form.invalid) return;
 
     const { completed, todo } = this.form.value;
@@ -47,6 +49,12 @@ export class HomeComponent {
       id: store.id,
       text: todo as string,
     });
-    console.log(store);
+
+    this.form.reset();
+    this.show = true;
+
+    setTimeout(() => {
+      this.show = false;
+    }, 1500);
   }
 }
