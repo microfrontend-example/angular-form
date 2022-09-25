@@ -4,6 +4,6 @@ const singleSpaAngularWebpack =
 module.exports = (config, options) => {
   const singleSpaWebpackConfig = singleSpaAngularWebpack(config, options);
 
-  singleSpaWebpackConfig.externals = [/^@throwjs\/store$/];
+  singleSpaWebpackConfig.externals = ["single-spa", /^@throwjs\/store$/];
   return singleSpaWebpackConfig;
 };
